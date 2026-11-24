@@ -1,59 +1,67 @@
-# ClassicMotorRally
+# I Rally & Concentración Histórica Classic Motor
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.2.1.
+Plataforma web oficial del **I Rally & Concentración Histórica Classic Motor** para la Asociación *Classic Motor Club* (DAW · DIW · Trabajo de Evaluación I · curso 2026/2027).
 
-## Development server
+## Descripción
 
-To start a local development server, run:
+Aplicación frontend desarrollada en Angular con arquitectura basada en **Standalone Components**, estado reactivo con **Signals** y maquetación propia mediante **SCSS modular (BEM)** sin frameworks CSS externos, siguiendo criterios de diseño *mobile-first* (`375px`, `768px`, `1440px`) y accesibilidad WCAG AA.
 
-```bash
-ng serve
-```
+### Secciones de la aplicación
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- **Inicio (`/`)**: presentación del evento, vehículos destacados y punto de encuentro.
+- **Catálogo interactivo (`/catalogo` y `/catalogo/:id`)**: listado filtrable en tiempo real con señales y ficha técnica de cada vehículo.
+- **Itinerario y programa (`/itinerario`)**: cronograma de la jornada y recorrido por etapas.
+- **Inscripción (`/inscripcion`)**: formulario reactivo para participantes y vehículos con validación de campos.
+- **Guía de estilo (`/guia-estilo`)**: documentación viva de tokens cromáticos, tipografía, botones y componentes base.
 
-## Code scaffolding
+## Stack tecnológico
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- **Angular** `^22.2.0` (Standalone Components, Router, Signals, `HttpClient`)
+- **TypeScript** `~6.0.2` (modo estricto `"strict": true`)
+- **SCSS** modular con `@use` y metodología BEM
+- **Vitest** `^5.0.0` para pruebas unitarias
+- **Gestor de paquetes:** `npm` (`11.19.0`)
 
-```bash
-ng generate component component-name
-```
+## Requisitos previos
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+- Node.js (`v24.x` recomendada)
+- npm (`11.x`)
 
-```bash
-ng generate --help
-```
+## Puesta en marcha y scripts
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+Instalar dependencias:
 
 ```bash
-ng test
+npm install
 ```
 
-## Running end-to-end tests
+Scripts disponibles en `package.json`:
 
-For end-to-end (e2e) testing, run:
+| Comando | Descripción |
+|---------|-------------|
+| `npm start` | Inicia el servidor de desarrollo (`ng serve`) en `http://localhost:4200/`. |
+| `npm run build` | Compila la aplicación en `dist/classic-motor-rally/`. |
+| `npm run watch` | Compila en modo desarrollo observando cambios (`ng build --watch --configuration development`). |
+| `npm test` | Ejecuta la batería de pruebas unitarias con Vitest (`ng test`). |
 
-```bash
-ng e2e
+## Estructura principal
+
+```text
+ProyectoNavidadDiw/
+├── angular.json
+├── package.json
+├── tsconfig.json
+├── public/                 # Recursos estáticos servidos tal cual
+└── src/
+    ├── index.html
+    ├── main.ts
+    ├── styles.scss
+    └── app/
+        ├── app.config.ts
+        ├── app.routes.ts
+        └── app.component.{ts,html,scss}
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Despliegue
 
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- **URL de producción:** _(pendiente)_
