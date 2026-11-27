@@ -1,3 +1,26 @@
 <section class="style-guide">
-  <h1>Guía de estilo</h1>
+  <div class="style-guide__container">
+    <p class="style-guide__eyebrow">Sistema de diseño · Tokens y componentes en vivo</p>
+    <h1 class="style-guide__title">Guía de estilo</h1>
+    <p class="style-guide__lead">
+      Documentación viva de la paleta cromática, la jerarquía tipográfica, la escala de espaciados y
+      los componentes base construidos para Classic Motor.
+    </p>
+
+    <article class="style-guide__panel">
+      <h2 class="style-guide__panel-title">Avance de botones base (<code>cm-button</code>)</h2>
+      <p class="style-guide__panel-text">
+        Muestra interactiva inicial de las variantes y estados del componente compartido. La matriz
+        completa de tokens y componentes se documentará en la Fase 5.
+      </p>
+      <div class="style-guide__actions">
+        <cm-button variant="primary">Primario</cm-button>
+        <cm-button variant="secondary">Secundario</cm-button>
+        <cm-button variant="ghost">Ghost</cm-button>
+        <cm-button variant="primary" size="sm">Pequeño</cm-button>
+        <cm-button variant="primary" size="lg">Grande</cm-button>
+        <cm-button variant="primary" [isDisabled]="true">Deshabilitado</cm-button>
+      </div>
+    </article>
+  </div>
 </section>

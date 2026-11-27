@@ -1,0 +1,20 @@
+@if (routerLink(); as link) {
+  <a
+    [class]="buttonClasses()"
+    [routerLink]="isDisabled() ? null : link"
+    [attr.aria-label]="ariaLabel()"
+    [attr.aria-disabled]="isDisabled() ? 'true' : null"
+    [attr.tabindex]="isDisabled() ? -1 : null"
+  >
+    <ng-content />
+  </a>
+} @else {
+  <button
+    [type]="type()"
+    [class]="buttonClasses()"
+    [disabled]="isDisabled()"
+    [attr.aria-label]="ariaLabel()"
+  >
+    <ng-content />
+  </button>
+}

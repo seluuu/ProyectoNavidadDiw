@@ -1,0 +1,143 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+:host {
+  display: inline-block;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-2;
+  min-height: $control-min-height;
+  padding: $space-2 $space-5;
+  font-family: $font-body;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-snug;
+  letter-spacing: $letter-spacing-wide;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: $border-width-medium solid transparent;
+  border-radius: $radius-sm;
+  cursor: pointer;
+  transition:
+    background-color $transition-fast,
+    border-color $transition-fast,
+    color $transition-fast,
+    box-shadow $transition-fast;
+
+  @include focus-ring($color-focus);
+
+  &--is-focus {
+    outline: $focus-ring-width solid $color-focus;
+    outline-offset: $focus-ring-offset;
+  }
+
+  &--sm {
+    min-height: $control-min-height-sm;
+    padding: $space-1 $space-3;
+    font-size: $font-size-xs;
+  }
+
+  &--md {
+    min-height: $control-min-height;
+    padding: $space-2 $space-5;
+    font-size: $font-size-sm;
+  }
+
+  &--lg {
+    min-height: $control-min-height-lg;
+    padding: $space-3 $space-6;
+    font-size: $font-size-base;
+  }
+
+  &--full {
+    width: 100%;
+  }
+
+  &--primary {
+    background-color: $color-brg-500;
+    border-color: $color-brg-500;
+    color: $color-text-on-dark;
+
+    &:hover:not(:disabled),
+    &.btn--is-hover {
+      background-color: $color-brg-300;
+      border-color: $color-brg-300;
+      color: $color-white;
+    }
+
+    &:active:not(:disabled),
+    &.btn--is-active {
+      background-color: $color-brg-700;
+      border-color: $color-brg-700;
+      color: $color-text-on-dark;
+    }
+  }
+
+  &--secondary {
+    background-color: $color-burgundy-500;
+    border-color: $color-burgundy-500;
+    color: $color-text-on-dark;
+
+    &:hover:not(:disabled),
+    &.btn--is-hover {
+      background-color: $color-burgundy-300;
+      border-color: $color-burgundy-300;
+      color: $color-white;
+    }
+
+    &:active:not(:disabled),
+    &.btn--is-active {
+      background-color: $color-burgundy-700;
+      border-color: $color-burgundy-700;
+      color: $color-text-on-dark;
+    }
+  }
+
+  &--ghost {
+    background-color: transparent;
+    border-color: $color-brg-500;
+    color: $color-brg-500;
+
+    &:hover:not(:disabled),
+    &.btn--is-hover {
+      background-color: $color-brg-500;
+      border-color: $color-brg-500;
+      color: $color-text-on-dark;
+    }
+
+    &:active:not(:disabled),
+    &.btn--is-active {
+      background-color: $color-brg-700;
+      border-color: $color-brg-700;
+      color: $color-text-on-dark;
+    }
+  }
+
+  &--on-dark {
+    @include focus-ring($color-focus-on-dark);
+
+    &.btn--is-focus {
+      outline: $focus-ring-width solid $color-focus-on-dark;
+      outline-offset: $focus-ring-offset;
+    }
+
+    &.btn--ghost {
+      border-color: $color-border-accent;
+      color: $color-text-on-dark;
+    }
+  }
+
+  &:disabled,
+  &--disabled {
+    background-color: $color-chrome-300;
+    border-color: $color-chrome-300;
+    color: $color-text-secondary;
+    cursor: not-allowed;
+    pointer-events: none;
+    box-shadow: $shadow-none;
+  }
+}
