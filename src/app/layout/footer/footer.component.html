@@ -1,0 +1,40 @@
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <h2 class="footer__title">Classic Motor Club</h2>
+        <p class="footer__description">
+          Organización oficial del I Rally &amp; Concentración Histórica Classic Motor. Regularidad
+          clásica, patrimonio automovilístico y cultura del motor de época.
+        </p>
+      </div>
+
+      <div class="footer__section">
+        <h2 class="footer__heading">Secciones</h2>
+        <ul class="footer__list">
+          @for (item of links; track item.route) {
+            <li class="footer__list-item">
+              <a class="footer__link" [routerLink]="item.route">{{ item.label }}</a>
+            </li>
+          }
+        </ul>
+      </div>
+
+      <div class="footer__section">
+        <h2 class="footer__heading">Información del evento</h2>
+        <ul class="footer__list">
+          <li class="footer__meta">Edición inaugural · Temporada 2026/2027</li>
+          <li class="footer__meta">Salida: Plaza Mayor · Parque Cerrado</li>
+          <li class="footer__meta">Contacto: inscripciones&#64;classicmotorclub.es</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <p class="footer__copyright">
+        &copy; {{ currentYear }} Asociación Classic Motor Club. Todos los derechos reservados.
+      </p>
+      <p class="footer__edition">DIW-T1 · Regularidad Histórica</p>
+    </div>
+  </div>
+</footer>

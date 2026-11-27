@@ -1,0 +1,115 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.nav {
+  display: flex;
+  align-items: center;
+
+  &__toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: $control-min-height;
+    min-height: $control-min-height;
+    padding: $space-2;
+    color: $color-text-on-dark;
+    border: $border-width-thin solid $color-border-accent;
+    border-radius: $radius-sm;
+    transition:
+      background-color $transition-fast,
+      border-color $transition-fast;
+
+    &:hover {
+      background-color: $color-brg-500;
+      border-color: $color-text-on-dark;
+    }
+
+    @include focus-ring($color-focus-on-dark);
+
+    @include respond-to(tablet) {
+      display: none;
+    }
+  }
+
+  &__toggle-icon {
+    width: $space-5;
+    height: $space-5;
+  }
+
+  &__list {
+    display: none;
+    position: absolute;
+    inset-block-start: 100%;
+    inset-inline: $space-0;
+    z-index: $z-dropdown;
+    flex-direction: column;
+    gap: $space-1;
+    padding: $space-3 $container-padding-mobile $space-4;
+    background-color: $color-bg-dark;
+    border-bottom: $border-width-medium solid $color-border-accent;
+    box-shadow: $shadow-header;
+
+    @include respond-to(tablet) {
+      display: flex;
+      position: static;
+      flex-direction: row;
+      align-items: center;
+      gap: $space-2;
+      padding: $space-0;
+      background-color: transparent;
+      border-bottom: 0;
+      box-shadow: $shadow-none;
+    }
+
+    @include respond-to(desktop) {
+      gap: $space-4;
+    }
+  }
+
+  &__list--open {
+    display: flex;
+  }
+
+  &__item {
+    display: flex;
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
+    min-height: $control-min-height;
+    padding: $space-2 $space-3;
+    font-family: $font-body;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    letter-spacing: $letter-spacing-wide;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $color-text-on-dark;
+    border-bottom: $border-width-medium solid transparent;
+    border-radius: $radius-sm;
+    transition:
+      background-color $transition-fast,
+      border-color $transition-fast,
+      color $transition-fast;
+
+    &:hover {
+      background-color: $color-chrome-sheen;
+      color: $color-white;
+    }
+
+    @include focus-ring($color-focus-on-dark);
+
+    @include respond-to(tablet) {
+      width: auto;
+      padding: $space-2 $space-3;
+    }
+  }
+
+  &__link--active {
+    color: $color-white;
+    background-color: $color-brg-500;
+    border-bottom-color: $color-border-accent;
+  }
+}

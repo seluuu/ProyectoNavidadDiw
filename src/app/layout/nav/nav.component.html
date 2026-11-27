@@ -1,0 +1,58 @@
+<nav class="nav" aria-label="Navegación principal">
+  <button
+    type="button"
+    class="nav__toggle"
+    aria-controls="primary-navigation"
+    [attr.aria-expanded]="isMenuOpen()"
+    [attr.aria-label]="isMenuOpen() ? 'Cerrar menú de navegación' : 'Abrir menú de navegación'"
+    (click)="onToggleMenu()"
+  >
+    @if (isMenuOpen()) {
+      <svg
+        class="nav__toggle-icon"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <line x1="6" y1="6" x2="18" y2="18" />
+        <line x1="18" y1="6" x2="6" y2="18" />
+      </svg>
+    } @else {
+      <svg
+        class="nav__toggle-icon"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <line x1="4" y1="7" x2="20" y2="7" />
+        <line x1="4" y1="12" x2="20" y2="12" />
+        <line x1="4" y1="17" x2="20" y2="17" />
+      </svg>
+    }
+  </button>
+
+  <ul id="primary-navigation" class="nav__list" [class.nav__list--open]="isMenuOpen()">
+    @for (item of navItems; track item.route) {
+      <li class="nav__item">
+        <a
+          class="nav__link"
+          [routerLink]="item.route"
+          routerLinkActive="nav__link--active"
+          [routerLinkActiveOptions]="{ exact: item.isExact }"
+          ariaCurrentWhenActive="page"
+          (click)="onCloseMenu()"
+        >
+          {{ item.label }}
+        </a>
+      </li>
+    }
+  </ul>
+</nav>

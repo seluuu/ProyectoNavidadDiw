@@ -1,0 +1,41 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+
+  &__main {
+    flex: 1 0 auto;
+  }
+}
+
+.skip-link {
+  @include visually-hidden;
+
+  &:focus,
+  &:focus-visible {
+    position: fixed;
+    inset-block-start: $space-2;
+    inset-inline-start: $space-2;
+    z-index: $z-skip-link;
+    width: auto;
+    height: auto;
+    margin: $space-0;
+    padding: $space-3 $space-4;
+    overflow: visible;
+    clip-path: none;
+    white-space: normal;
+    background-color: $color-bg-dark;
+    color: $color-text-on-dark;
+    font-weight: $font-weight-semibold;
+    text-decoration: none;
+    border: $border-width-medium solid $color-border-accent;
+    border-radius: $radius-sm;
+    box-shadow: $shadow-elevated;
+  }
+
+  @include focus-ring($color-focus-on-dark);
+}

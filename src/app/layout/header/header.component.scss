@@ -1,0 +1,73 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.header {
+  position: relative;
+  z-index: $z-header;
+  background-color: $color-bg-dark;
+  color: $color-text-on-dark;
+  border-bottom: $border-width-medium solid $color-border-accent;
+  box-shadow: $shadow-header;
+
+  &__inner {
+    @include container;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $space-4;
+    min-height: $header-height-mobile;
+
+    @include respond-to(desktop) {
+      min-height: $header-height-desktop;
+    }
+  }
+
+  &__brand {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-3;
+    min-height: $control-min-height;
+    color: $color-text-on-dark;
+    text-decoration: none;
+    border-radius: $radius-sm;
+
+    &:hover {
+      color: $color-white;
+    }
+
+    @include focus-ring($color-focus-on-dark);
+  }
+
+  &__emblem {
+    width: $space-6;
+    height: $space-6;
+    flex-shrink: 0;
+    color: $color-leather-300;
+  }
+
+  &__brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: $line-height-tight;
+  }
+
+  &__brand-title {
+    font-family: $font-heading;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
+    letter-spacing: $letter-spacing-tight;
+    color: $color-text-on-dark;
+
+    @include respond-to(desktop) {
+      font-size: $font-size-xl;
+    }
+  }
+
+  &__brand-subtitle {
+    font-family: $font-mono;
+    font-size: $font-size-xs;
+    letter-spacing: $letter-spacing-wider;
+    text-transform: uppercase;
+    color: $color-leather-300;
+  }
+}
