@@ -1,1 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
+// ==========================================================================
+// Punto de entrada global de estilos — Classic Motor
+// Carga exclusivamente los parciales SCSS base mediante @use.
+// ==========================================================================
+
+@use 'styles/reset';
+@use 'styles/typography';
+@use 'styles/utilities';

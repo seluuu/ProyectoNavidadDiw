@@ -1,0 +1,41 @@
+// ==========================================================================
+// Utilidades globales — Classic Motor
+// Clases auxiliares de accesibilidad, contenedores responsive y tipografía
+// técnica, construidas exclusivamente sobre los tokens y mixins base.
+// ==========================================================================
+
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// Ocultación accesible para lectores de pantalla
+.visually-hidden {
+  @include visually-hidden;
+}
+
+.visually-hidden-focusable {
+  @include visually-hidden-focusable;
+}
+
+// Contenedor principal centrado con ancho máximo y relleno progresivo
+.container {
+  @include container;
+
+  &--narrow {
+    @include container($container-narrow);
+  }
+}
+
+// Utilidades tipográficas técnicas y de énfasis
+.text-mono {
+  font-family: $font-mono;
+  line-height: $line-height-mono;
+  font-variant-numeric: tabular-nums;
+}
+
+.text-muted {
+  color: $color-text-secondary;
+}
+
+.text-accent {
+  color: $color-text-accent;
+}

@@ -1,0 +1,145 @@
+// ==========================================================================
+// Jerarquía tipográfica base — Classic Motor
+// Escala mobile-first basada en Playfair Display, Source Sans 3 e IBM Plex Mono.
+// ==========================================================================
+
+@use 'variables' as *;
+@use 'mixins' as *;
+
+body {
+  font-family: $font-body;
+  font-size: $font-size-base;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-base;
+  color: $color-text-primary;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-heading;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: $font-size-2xl;
+  line-height: $line-height-tight;
+  letter-spacing: $letter-spacing-tight;
+
+  @include respond-to(tablet) {
+    font-size: $font-size-3xl;
+  }
+
+  @include respond-to(desktop) {
+    font-size: $font-size-4xl;
+  }
+}
+
+h2 {
+  font-size: $font-size-xl;
+  line-height: $line-height-tight;
+  letter-spacing: $letter-spacing-tight;
+
+  @include respond-to(tablet) {
+    font-size: $font-size-2xl;
+  }
+
+  @include respond-to(desktop) {
+    font-size: $font-size-3xl;
+  }
+}
+
+h3 {
+  font-size: $font-size-lg;
+  line-height: $line-height-snug;
+
+  @include respond-to(desktop) {
+    font-size: $font-size-xl;
+  }
+}
+
+h4 {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-snug;
+}
+
+h5 {
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-snug;
+}
+
+h6 {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-snug;
+  letter-spacing: $letter-spacing-wide;
+  text-transform: uppercase;
+  color: $color-text-accent;
+}
+
+p {
+  line-height: $line-height-base;
+}
+
+small {
+  font-size: $font-size-sm;
+  line-height: $line-height-base;
+  color: $color-text-secondary;
+}
+
+strong,
+b {
+  font-weight: $font-weight-semibold;
+}
+
+code,
+kbd,
+samp,
+pre,
+time {
+  font-family: $font-mono;
+  line-height: $line-height-mono;
+  font-variant-numeric: tabular-nums;
+}
+
+a {
+  color: $color-brg-500;
+  text-decoration: underline;
+  text-decoration-thickness: $border-width-thin;
+  text-underline-offset: $space-1;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $color-burgundy-500;
+  }
+
+  &:active {
+    color: $color-burgundy-700;
+  }
+}
+
+blockquote {
+  padding-inline-start: $space-4;
+  border-inline-start: $border-width-thick solid $color-border-accent;
+  font-style: italic;
+  color: $color-text-secondary;
+}
+
+hr {
+  border: 0;
+  border-top: $border-width-thin solid $color-border-subtle;
+  margin-block: $space-6;
+}
+
+::selection {
+  background-color: $color-brg-500;
+  color: $color-text-on-dark;
+}
